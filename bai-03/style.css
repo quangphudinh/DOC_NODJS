@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+/* Simple selector (Bộ chọn đơn giản) */
+h1 {
+    color: red;
+    font-family: "Oswald", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+h2
+{
+    color: blue;
+}
+/* theo id */
+#test-b {
+    color: green;
+}
+/* theo class */
+.color-green {
+    color: green;
+}
+/* bộ chọn chung */
+/* * {
+    text-align: center; căng giữa : left right justify : can deu 2 ben
+} */
+h6,h5 {
+    color: yellow;
+    background: #5989D7;
+}
+
+/* Box Model : 
+    - content : noi dung
+    - padding : khoang cach giua content va border
+    - border : duong bo vien quanh padding
+    - margin : khoang cach giua cac phan tu box  */
+
+/* Text
+    - text-align: center left right justify
+    - text-transform: uppercase viethoatatca ;  lowercase vietthuongtatca ; captialize viethoachucaidau  */
+
+/* 
+    -font-style : normal  , italic : in nghien
+    -font-weight : normal bold 100 200 300,.. độ dày của chữ 
+    -font-size : 16px : cở chữ */
+
+/* DISPLAY
+    - inline : không được dặt giá trị height width
+    - block :dặt được heigt width , nhưng vẫn nằm trên 1 hàng
+    - inline-block : dặt được heigt width
+    - none : ẩm phần tử - không chiếm diện tích trong trang
+ */
+
+ /* VISIBILITY
+    - visibility : none : ẩn phần tử   
+    - visibility : hidden : ản phần tử - nhưng vẫn chiến diện tích trong trang
+    - visibility : visible : hiển thị phần tử
+  */
+
+/* Combinator selectors 
+    - b + c {} : chọn phần tử C được đặt cùng cấp và KỀ NGAY SAU phẩn từ b
+    - b ~ c {} : chọn tất cả phẩn tử C cùng cấp với phần tử b và những phần tử c phải nằm sau phẩn tử b
+    - b > c {} : chọn tất cả phần tử C là cấp con đầu tiên (cấp 1) của phần tử b 
+    - b c {} : chọn tất cả phần tử C bên trong b
+*/
+
+/* POSITION
+    - position : static : tĩnh -k sử dụng đc top right left bottom
+    - position : relative : tương đối , so sanh vi trí ban đàu của nó
+    - position : absolute : tuyệt đối so sanh gia tri trong phan tu CHA chứa nó
+    - position : fixed : tuyết đối được định vị so với khung hình , nghĩa là nó luôn ở một vị trí cố định ngay cả khi trang được cuộn
+    - position : sticky : tuyết đối + tương đối : nghĩa là nó luôn ứng một vị trí cố định ngay cả khi trang được cuộn
+ */
+/* z- index :  thứ tự xếp chồng (không có tác dụng khi thuộc tính position có giá trị là static)
+
+ */

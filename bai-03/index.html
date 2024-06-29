@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Lession</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- Simple selector (Bộ chọn đơn giản) -->
+<!--     
+    <h1>
+        <i class="fa-brands fa-facebook-messenger"></i>
+        Noi dung the h1
+    </h1>
+    <h2>
+        Noi dung the h2 a
+        <i class="fa-brands fa-facebook"></i>
+    </h2>
+    <h2>Noi dung the h2 b</h2>
+    <h3 id="test-b">Noi dung the h3 co id = test-b</h3>
+    <h4 class="color-green">The nay co may Green nha</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque iure nisi temporibus quia. 
+        Nesciunt doloremque voluptatum, earum dolorum alias quidem consequuntur obcaecati 
+        voluptates saepe sequi accusamus dicta quaerat corrupti velit!</p>
+    <h5>Noi dung the h5</h5>
+    <h6>Noi dung the h6</h6> -->
+
+    <!-- <style>
+        .box {
+            border: 5px dashed #000000;      /*dashed : net duc ; dotted : duong cham*/
+            padding : 100px 20px 50px 50px;
+            background: red;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <div class="box">
+        Box 1
+    </div>
+    <div class="box">
+        Box 2
+    </div> -->
+<!-- Text -->
+    <!-- <style>
+        .text-1 {
+            text-align: left;
+            text-transform: uppercase;
+        }
+        .text-2 {
+            text-align: right;
+            text-transform: lowercase;
+        }
+        .text-3 {
+            text-align: center;
+        }
+        .text-4{
+            text-align: justify;
+            text-transform: capitalize;
+        }
+    </style>
+
+    <p class="text-1">Doan van 1</p>
+    <p class="text-2">Doan van 2</p>
+    <p class="text-3">Doan van 3</p>
+    <p class="text-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Molestiae nemo modi libero ad facere consectetur praesentium dicta voluptatum 
+        expedita nesciunt dolorem at eaque labore in laudantium reprehenderit, dolores debitis deserunt.</p> -->
+
+<!-- DISPLAY
+     <style>
+        span {
+            background: yellow;
+            border: 2px solid black;
+        }
+        .inline {
+            display: inline;
+        }
+        .inline-block {
+            display: inline-block;
+        }
+        .block {
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin-left: 50%;
+        }
+        .display-none {
+            display: none;
+        }
+     </style>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span class="inline">Inline 1</span> Cupiditate  <span class="inline">Inline 2</span>quasi error molestiae minima ea odio fugiat,
+         autem at dicta aspernatur tempora voluptatum. Veniam velit at esse obcaecati temporibus illo expedita?</p>
+         <p class="display-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nam animi
+             dignissimos tempora velit repellat corporis consectetur, 
+            aut distinctio quis accusantium odit iste molestiae maiores sunt tenetur ducimus? Porro, sit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  <span class="block">block 1</span>Aut cum  <span class="block">block 2</span>autem eveniet, dicta omnis cumque temporibus, 
+        vitae nisi fuga similique odio obcaecati iure? Quidem quos voluptatum perspiciatis culpa in obcaecati!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  <span class="inline-block">inline-block 1</span>Aut cum  <span class="inline-block">inline-block 2</span>autem eveniet, dicta omnis cumque temporibus, 
+            vitae nisi fuga similique odio obcaecati iure? Quidem quos voluptatum perspiciatis culpa in obcaecati!</p> -->
+<!-- COMBINATOR SELECTOR        
+        <style>
+            div  p {
+                color: red;
+            }
+        </style>
+        <p>Noi dung 1</p>
+        <div>
+            <p>Noi dung 2</p>
+            <p>Noi dung 3</p>
+
+            <section>
+                <p>Noi dung selection 1</p>
+                <p>Noi dung selection 2</p>
+
+                <article>
+                    <p>Noi dung article 1</p>
+                    <p>Noi dung article 2</p>
+                </article>
+            </section>
+        </div>
+        <p>Noi dung 4</p>
+        <p>Noi dung 5</p>-->
+<!-- POSITON -->
+    <style>
+         .box {
+            background: gray;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            position: static;
+            border-radius: 5px;
+        }
+        /*.box-2 {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            background: yellow;
+        } */
+         .box-3{
+             position: relative;
+             background: gray;
+         }
+         .box-4{
+             /* position: absolute; */
+             position: fixed;   
+             display: inline-block;
+             width:  50px;
+             height: 50px;
+             background: yellow;
+             bottom: 0px;
+             right: 20px;
+         }
+         .hearder {
+            color: black;
+            background: red;
+            padding: 10px;
+            /* position: fixed; */
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin-top: 0;
+            z-index: 1;
+         }
+    </style>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+        Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+    <h1 class="hearder">Day la the Hearder</h1>
+    <!-- <div class="box">1</div>
+    <div class="box box-2">2</div> -->
+    <div class="box box-3">3
+        <div class="box box-4">4</div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+        Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+            Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                    Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                        Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                            Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                                Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                                    Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio accusantium voluptatibus perspiciatis. 
+                                        Culpa blanditiis ad placeat natus in sint aut, amet, explicabo aperiam corporis maxime a quam dolore eveniet ullam.</p>
+
+
+</body> 
+
+</html>

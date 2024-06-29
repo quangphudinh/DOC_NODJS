@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- chen link video -->
+    <!--    controls : thanh dieu kien nhuw bat tat am thanh ,v,v
+            loop : lặp lại
+            muted : am thanh 
+            autoplay : tu dong chay -->
+    <video width="320" height="240"  controls>
+        <source src="video/video_random.mp4" type="video/mp4">
+    </video>
+    
+    <!-- chen the audio  -->
+     <!--   controls : thanh dieu kien nhuw bat tat am thanh ,v,v
+            loop : lặp lại
+            muted : am thanh -->
+    <audio controls>
+        <source src="Audio/file_example_MP3_700KB.mp3" type="audio/mp3">
+    </audio>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+        }
+    </style>
+    <!-- bang - the table -->
+     <!-- <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>Nguyen Van A</th>
+                <th>20</th>
+                <th>Ha Noi</th>
+            </tr>
+            <tr>
+                <th>2</th> 
+                <th>Nguyen Van B</th>
+                <th>19</th>
+                <th>Ha Nam</th>
+            </tr>
+        </tbody>
+     </table> -->
+     <!-- <h2>Ví dụ 1 </h2>
+     <table>
+        <thead>
+            <tr>
+                <th>Hang 0 Cot 1</th>
+                <th>Hang 0 Cot 2</th>
+                <th>Hang 0 Cot 3</th>
+                <th>Hang 0 Cot 4</th>
+                <th>Hang 0 Cot 5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="6">Hang 1 Cot 1</th>
+                <th rowspan="4">Hang 1 Cot 2</th>
+                <th rowspan="3">Hang 1 Cot 3</th>
+                <th>Hang 1 Cot 4</th>
+                <th>Hang 1 Cot 5</th>
+            </tr>
+            <tr>
+                <th>Hang 2 Cot 4</th>
+                <th>Hang 2 Cot 5</th>
+            </tr>
+            <tr>
+                <th>Hang 3 Cot 4</th>
+                <th>Hang 3 Cot 5</th>
+            </tr>
+            <tr>
+                <th>Hang 4 Cot 3</th>
+                <th>Hang 4 Cot 4</th>
+                <th>Hang 4 Cot 5</th>
+            </tr>
+            <tr>
+    
+                <th rowspan="2">Hang 5 Cot 2</th>
+                <th rowspan="2">Hang 5 Cot 3</th>
+                <th>Hang 5 Cot 4</th>
+                <th>Hang 5 Cot 5</th>
+            </tr>
+            <tr>
+                <th>Hang 6 Cot 4</th>
+                <th>Hang 6 Cot 5</th>
+            </tr>
+        </tbody>
+     </table> -->
+
+     <!-- Dau cham thu tu
+     <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+     </ul> -->
+
+    <!-- SO thu tu -->
+     <!-- type="A" : chu hoa thu thu
+        type="a" : chu thuong
+        type="1" : so
+        type="i" : la ma viet thuong
+        type = "I" : la ma viet hoa -->
+     <!-- <ol type="A">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+     </ol> -->
+
+     <h2>Ví dụ 2</h2>
+     <ol type="I">
+        <li>Muc 1</li>
+        <ol type="A">
+            <li>Muc 1-1</li>
+            <li>Muc 1-2</li>
+        </ol>
+        <li>Muc 2</li>
+        <ol>
+            <ol type="A">
+                <li>Muc 2-1</li>
+                <li>Muc 2-2</li>
+                <li>Muc 2-3</li>
+                <li>Muc 2-4</li>
+                <ol type="i">
+                    <li>Muc 2-4-1</li>
+                    <li>Muc 2-4-2</li>
+                    <li>Muc 2-4-3</li>
+                </ol>
+            </ol>
+        </ol>
+        <li>Muc 3</li>
+        <li>Muc 4</li>
+        <li>Muc 5</li>  
+     </ol>
+
+     <!-- Phan Biet Inline vaf Block 
+      Block : <div> <h1>...<h6> <p> <ul> , <ol> ,<li> , <table> , <form>
+      Inline : <a> , <b> , <i> , <img> ,<imput> , <label> ,<select> ,<span>,<textarea>,<button>
+        Phan tu Inline thif k duoc chua kiue block-->
+    <!--Form 
+    Thuoc tinh ben trong the : 
+     - action :  gia tri duong dan , xác định nơi nhận giá trị khi gửi
+     - target = "_blank" : phan hoi hien thi ow tab moi 
+     - method : chỉ định giao thức HTTP sẽ được sd khi gửi dữ liệu biểu mẫu (GET và POST)
+                - GET (mặc định): nối dữ liệu biểu mẫu và URL theo cặp name/value (KHÔNG SỬ DỤNG dể gửi dữ liệu bảo mật,URL 2048 ký tự)
+                - POST :dữ liệu gửi đi k hiển thị trên URL , k giới hạn ký tự
+     - Autocomplete : tư động gợi ý những gia trị trước , "on" : mặc định
+     - Novalidate : kiem tra nhap lieu , "on" : mặc định  
+
+    Cách phương thức bên trong Form :
+     - input - type : text , email , password , checkbox , datatime-local, file  ,number ,date ,time ,range
+     - label : thuộc tính for trong label = giá trị id trong input
+     - select
+     - textarea : dùng để nhập nhiều dòng - note
+                -->
+    <form action="https://www.w3schools.com/action_page.php"
+          target="_blank"
+          method="post">
+        <label for="fullname">Ho Ten</label>
+        <br>
+        <input type="text" name="fullname" id="fullname">
+        <br>
+        <label for="email">Email</label>
+        <br>
+        <input type="text" name="email" id="email">
+        <br>
+        <label for="note">Ghi Chu</label>
+        <br>
+        <textarea name="note" id="note" cols="30" rows="10"></textarea>
+        <br>
+        <label for="color">Chon Mau Sac :</label>
+        <br>
+        <select id="color" name="color">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue" selected>Blue</option>
+        </select>
+
+        <br>
+        <input type="checkbox" name="language" id="nnC" value="c">
+        <label for="nnC">Ngon Ngu C</label>
+        <br>
+        <input type="checkbox" name="language" id="nnJV" value="Java">
+        <label for="nnJV">Ngon Ngu Java</label>
+        <br>
+        <input type="checkbox" name="language" id="nnPHP" value="PHP">
+        <label for="nnPHP">Ngon Ngu PHP</label>
+        <br>
+        <input type="radio" name="language" id="nnC" value="c">
+        <label for="nnC">Ngon Ngu C</label>
+        <br>
+        <input type="radio" name="language" id="nnJV" value="Java">
+        <label for="nnJV">Ngon Ngu Java</label>
+        <br>
+        <input type="radio" name="language" id="nnPHP" value="PHP">
+        <label for="nnPHP">Ngon Ngu PHP</label>
+
+        <br>
+        <br>
+        <input type="submit" value="Gui">
+    </form>
+</body>
+</html>
