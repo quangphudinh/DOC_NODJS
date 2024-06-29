@@ -1,0 +1,3 @@
+- BOM - Browser Object Model : là các đối tượng liên quan đến trình duyệt , 
+        dùng để truy vết lịch sử lướt web ,lưu các trạng thái và hành động , thong tin của người dùng
+- BOM Windown : là một đối tượng có những phương thức và thuộc tính được dùng để xử lý trình duyệt - mức độ cao nhất
