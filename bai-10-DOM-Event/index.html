@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.OnLoad -->
+    <!-- <ul id="menu">
+        <li>
+            <a href="#">Muc 1</a>
+        </li>
+        <li>
+            <a href="#">Muc 2</a>
+        </li>
+        <li>
+            <a href="#">Muc 3</a>
+        </li>
+    </ul> -->
+
+    <!-- <script>
+        // window.onload = () =>{
+        //     const listTagA = document.querySelectorAll("#menu li a"); // sau khi code trang load het moi chay su kien
+        //     console.log(listTagA);
+        // }
+        // const listTagA = document.querySelectorAll("#menu li a");
+        // console.log(listTagA);
+    </script> -->
+
+    <!-- 1.2 On blur : k focus on vao no nua -->
+     <input type="text" id="input">
+
+     <script>
+        const input = document.querySelector("#input");
+        input.onblur = (event) =>{
+            // console.log(event);
+            // console.log(event.target);
+            console.log(event.target.value);
+
+            input.value = input.value.toUpperCase();
+            input.style.background = "white";
+        }
+        input.onfocus = (event) =>{
+            event.target.style.background = "red";
+        }
+
+        input.onkeydown = () =>{
+            // console.log(event);
+            console.log(event.key);
+        }
+     </script>
+</body>
+</html>
