@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //4.1 createElement
+    //     const div = document.createElement('div')
+    //     div.innerHTML = `
+    //     <div id="ads-1" class = "ads">
+    //     <button id="close-ads">x</button>
+    //     <a href="#" target="_blank" >
+    //         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo2oPD7r0j6bn_K4P7CK1MgeFFdOeuFF0kGw&s" alt="" 
+    //         width = "200px">
+    //     </a>
+    // </div>`
+    //     document.querySelector('body').appendChild(div) 
+
+    //4.2 document.createTextNode
+    // const p = document.createElement('p');
+    // //p.innerHTML = 'Noi dung...';
+    // const text = document.createTextNode('Noi dung...');
+    // p.appendChild(text);
+    // document.querySelector('body').appendChild(p);
+
+    //4.3 appendChild : dùng để thêm vào vị trí cuối cùng của 1 thể HTML khác
+    //  cú pháp : element_parent.appendChild(node_insert); //node_insert : phần tử (thẻ) cần thêm - element_parent : phan tử cha
+    // document.querySelector('body').appendChild(document.createElement('p'));
+    </script>
+
+    <!-- 4.3 add new item-->
+     <!-- <ul id="menu">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+     </ul>
+     <button id = 'button'>Add</button> -->
+
+     <script>
+        // const menu = document.querySelector('#menu');
+        // const button = document.querySelector('#button');
+
+        // button.addEventListener('click' , () =>{
+        //     const li = document.createElement('li');
+        //     li.innerHTML = 'Item New';
+        //     menu.appendChild(li);
+        // })
+     </script>
+
+     <!-- 4.4 : insertBefore() :  them 1 node vao dang truoc node nao do
+      cu phap : element_parent.insertBefore(node_insert , node_child); //node_insert : phần tử (thẻ) cần thêm 
+      - element_parent : phan tử cha - node_child : node ma ban muon them truoc no-->
+      <script>
+        // const menu = document.querySelector('#menu');
+        // const button = document.querySelector('#button');
+        // //add phan tu vao dau
+        // button.addEventListener('click' , () =>{
+        //     const liFirst = menu.querySelector('li:nth-child(1)');
+        //     const li = document.createElement('li');
+        //     li.innerHTML = 'Item New';
+        //     menu.insertBefore(li,liFirst);
+        // })
+      </script>
+
+      <!-- 4.5 : removeChild()
+       cu phap : element_parent.removeChild(node_remove)
+       element_parent : phan tử cha - node_remove : node muon xoa -->
+
+       <ul id="menu">
+        <li>
+            1 <input type="text" value="Cong viec 1">
+            <button>x</button>
+        </li>
+        <li>
+            2 <input type="text" value="Cong viec 2">
+            <button>x</button>
+        </li>
+        <li>
+            3 <input type="text" value="Cong viec 3">
+            <button>x</button>
+        </li>
+       </ul>
+       <button id="button">Add</button>
+
+       <script>
+        // const menu = document.querySelector('#menu');
+        // const buttonDelete = menu.querySelectorAll('button');
+        // console.log(buttonDelete);
+        // for(const button of buttonDelete)  {
+        //    button.addEventListener('click' , (event) =>{
+        //     console.log(event.target.parentNode);
+        //     menu.removeChild(event.target.parentNode);
+        //    });
+        // }
+       </script>
+
+       <!-- 4.6 replaceChild -->
+       <script>
+            const menu = document.querySelector('#menu');
+            const button = document.querySelector('#button');
+            
+           button.addEventListener('click' , () =>{
+            const liSecond = menu.querySelector('li:nth-child(2)');
+
+            const li = document.createElement('li');
+            li.innerHTML = `4 <input type="text" value="Cong viec 4"><button>x</button>`;
+            menu.replaceChild(li, liSecond)
+           })
+        
+       </script>
+</body>
+</html>

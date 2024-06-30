@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">click me</button>
+    <script>
+        const button = document.querySelector('#button');
+
+        const ham1 = () => {
+            console.log('Thuc hien cong viec 1');
+        }
+        const ham2 = () => {
+            console.log('Thuc hien cong viec 2');
+        }
+        //event : chi thuc hien 1 event
+        // button.onclick = ()=>{
+        //     ham1();
+        // }
+        // button.onclick = ()=>{
+        //     ham2();
+        // }
+        button.addEventListener('click', ham1);
+        button.addEventListener('click', ham2);
+
+        setTimeout(() => {
+            button.removeEventListener('click', ham2);
+        },5000);
+
+    </script>
+</body>
+</html>
