@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- bai 1 : TODOLIST -->
+    <!-- <input type="text" id="todo-input" placeholder="Them ghi chu"/>
+    <button id = 'add-button'>Them</button>
+    <ul id="todo-list"></ul>
+
+    <style>
+        .completed{
+            text-decoration: line-through;
+        }
+    </style>
+
+    <script>
+        const todoInput = document.querySelector('#todo-input');
+        const addButton = document.querySelector('#add-button');
+        const todoList = document.querySelector('#todo-list');
+
+        addButton.addEventListener('click' , () =>{
+            const todoText = todoInput.value;
+            if(todoText!=='')
+            {
+                const li = document.createElement('li');
+                li.textContent = todoText;
+                todoList.appendChild(li);
+                todoInput.value = '';
+
+                li.addEventListener('click' , () =>{
+                    li.classList.toggle('completed');
+                });
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Xoa';
+                li.appendChild(deleteButton);
+
+                deleteButton.addEventListener('click' , () =>{
+                    li.remove();
+                });
+            }    
+        });
+        </script> -->
+
+        <!-- cau2 - Tao 1 trinh chinh sua HTML don gian -->
+         <!-- <textarea name="" id="html-editor" class="html-editor"></textarea>
+         <button id="preview-button" class="preview-button">Xem Truoc</button>
+         <div id="preview" class="preview"></div>
+
+         <style>
+            *{
+                box-sizing: border-box;
+            }
+            .html-editor{
+                border: 1px solid #ddd;
+                width: 100%;
+                height: 200px;
+                outline: none;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .preview-button{
+                background: #5b5b5b;
+                color: #fff;
+                border: 0;
+                padding: 10px 20px;
+                border-radius: 8px;
+                cursor: pointer; /* thay doi con tro chon */
+            }
+            .preview{
+                border: 1px solid #ddd;
+                margin-top: 20px;
+                min-height: 30px;
+            }
+         </style>
+
+         <script>
+            const htmlEditor = document.getElementById('html-editor');
+            const previewbutton = document.getElementById('preview-button');
+            const preview = document.getElementById('preview');
+
+            previewbutton.addEventListener('click' , () =>{
+                const htmlCode = htmlEditor.value;
+                preview.innerHTML = htmlCode;
+            });
+         </script> -->
+    
+         <!-- cau3 - Toa 1 bo chon mau -->
+          <!-- <input type="color" id="color=picker">
+          <p>Xem Truoc</p>
+          <div id="color-preview" class="color-preview"></div>
+          <style>
+            .color-preview{
+                width: 120px;
+                height: 60px;
+                border: 1px solid #ddd;
+            }
+          </style>
+          <script>
+            const colorPicker = document.getElementById('color=picker');
+            const colorPreview = document.getElementById('color-preview');
+            colorPicker.addEventListener('change' , () =>{
+                const setlectColor = colorPicker.value;
+                colorPreview.style.backgroundColor = setlectColor;
+            })
+          </script> -->
+
+          <!-- Cau 4 : Tao modal -->
+           <!-- <button id="modal-button">Mo Modal</button>
+           <div id="modal" class="modal">
+               <div class="modal-content">
+                   <span id="close-button" class="close-button">&times;</span> //dong cua so modal 
+                   <h1>Modal Content</h1>
+                   <p>Noi dung cua modal......</p>
+               </div>
+           </div> -->
+
+           <!-- <style>
+               .modal{
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.4);
+               }
+               .modal-content{
+                   background-color: #fefefe;
+                   margin: 15% auto;
+                   padding: 15px;
+                   width: 50%;
+                   text-align: center;
+               }
+
+               .close-button{
+                   color: #aaa;
+                   float: right;
+                   font-size: 28px;
+                   font-weight: bold;
+                   cursor: pointer;
+                   padding-top: -10px;
+               }
+           </style>
+
+           <script>
+            const modalbutton = document.getElementById('modal-button');
+            const modal = document.getElementById('modal');
+            const closeButton = document.getElementById('close-button');
+
+            modalbutton.addEventListener('click' , () =>{
+                modal.style.display = 'block';
+            });
+
+            closeButton.addEventListener('click' , () =>{
+                modal.style.display = 'none';
+            });
+           </script> -->
+
+           <!-- Cau5 : Tao menu dang tabs -->
+
+           <!-- <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event , 'tab1')">Tab 1</button>
+                <button class="tab-button" onclick="openTab(event , 'tab2')">Tab 2</button>
+                <button class="tab-button" onclick="openTab(event , 'tab3')">Tab 3</button>
+                
+                <div id="tab1" class="tab-content active">
+                    <h3>Noi dung cua tab 1</h3>
+                    <p>Day la noi dung cua tab 1 nha</p>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <h3>Noi dung cua tab 22</h3>
+                    <p>Day la noi dung cua tab 22 nha</p>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <h3>Noi dung cua tab 333</h3>
+                    <p>Day la noi dung cua tab 333 nha</p>
+                </div>
+           </div>
+
+           <style>
+               .tabs{
+                 overflow: hidden; /*//kiem soat noi dung vuot qua vung chua */
+               }
+               .tab-button{
+                    background-color: #b3a7a7;
+                    float: left;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    padding: 10px 20px;
+                    transition: 0.3s;
+               }
+
+               .tab-button:hover , .tab-button.active{
+                   background-color: #ddd;
+               } /*Tạo hiệu ứng kho hover vào tab */
+
+               .tab-content{
+                display: none;
+                padding: 20px;
+                border: 1px solid #ccc;
+                background-color: white;
+               }
+               .tab-content.active{
+                   display: block;
+               }
+           </style>
+
+           <script>
+               function openTab(event , tabName){
+                  const tabContents = document.getElementsByClassName('tab-content');
+                  for(let i = 0 ; i < tabContents.length ; i++){
+                      tabContents[i].classList.remove('active');
+                  }
+
+                  const tabButton = document.getElementsByClassName('tab-button');
+                  for(let i = 0 ; i < tabButton.length ; i++){
+                      tabButton[i].classList.remove('active');
+                  }
+
+                  document.getElementById(tabName).classList.add('active');
+                  //event.currentTarget.classList.add('active');
+               }
+           </script> -->
+
+           <!-- cau6 : May tính đơn giản -->
+            <!-- <div class="box">
+                <h2>May Tinh</h2>
+                <input type="number" id="num1" placeholder="Nhap so thu nhat :" style="margin: 2px;">
+                <br>
+                <input type="number" id="num2" placeholder="Nhap so thu hai :" style="margin: 2px;">
+                <br>
+                <button onclick="add()">Cong</button>
+                <button onclick="sub()">Tru</button>
+                <button onclick="mul()">Nhan</button>
+                <button onclick="div()">Chia</button>
+                <br>
+                <h3>Ket Qua : <span id="result"></span></h3>
+            </div>
+
+            <style>
+                .box{
+                    text-align: center;
+                    width: 300px;
+                    margin: 0 auto;
+                    /* padding-left: 100px; */
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+                
+            </style>
+            <script>
+                function add(){
+                    const num1 = parseFloat(document.getElementById('num1').value);
+                    const num2 = parseFloat(document.getElementById('num2').value);
+                    const result = num1 + num2;
+                    document.getElementById('result').innerHTML = result;
+                }
+                function sub(){
+                    const num1 = parseFloat(document.getElementById('num1').value);
+                    const num2 = parseFloat(document.getElementById('num2').value);
+                    const result = num1 - num2;
+                    document.getElementById('result').innerHTML = result;
+                }
+                function mul(){
+                    const num1 = parseFloat(document.getElementById('num1').value);
+                    const num2 = parseFloat(document.getElementById('num2').value);
+                    const result = num1 * num2;
+                    document.getElementById('result').innerHTML = result;
+                }
+                function div(){
+                    const result = 0;
+                    const num1 = parseFloat(document.getElementById('num1').value);
+                    const num2 = parseFloat(document.getElementById('num2').value);
+                    if(num2 != 0){
+                        result = num1 / num2;
+                        document.getElementById('result').innerHTML = result;
+                    }
+                    else {
+                        document.getElementById('result').innerHTML = 'Khong the chia cho 0';
+                    }
+                }
+            </script> -->
+
+            <!-- Cau 7 : Tao bieu do cot -->
+             <!-- <div id ="chart"></div>
+             <style>
+                .bar{
+                    width: 30px;
+                    margin-right: 10px;
+                    background-color: #3F87F5;
+                    display: inline-block;
+                    vertical-align: bottom;
+                }
+             </style>
+             <script>
+                const data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+                const chart = document.getElementById('chart');
+                for(let i = 0 ; i < data.length ; i++){
+                    const bar = document.createElement('div');
+                    bar.className = 'bar';
+                    bar.style.height = data[i] + 'px';
+                    chart.appendChild(bar);
+
+                    const ct = document.createElement('p');
+                    ct.textContent = data[i];
+                    
+                    bar.appendChild(ct);
+                }
+             </script> -->
+
+             <!-- Cau 8 : Tao mot thanh truot am luong -->
+              <!-- <input type="range" id="slider" min = 1 , max="100" value="50">
+              <p id ="valueDisplay">50</p>
+
+              <script>
+                const slider = document.getElementById('slider');
+                const valuerDisplay = document.getElementById('valueDisplay');
+
+                slider.addEventListener('input' , () =>{
+                    valuerDisplay.innerHTML = slider.value;
+                });
+              </script>-->
+</body>  
+</html>
