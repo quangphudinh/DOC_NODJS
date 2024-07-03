@@ -120,7 +120,7 @@ import { tinhTong} from "./helpers/tinhTong.js";
 fetch("https://dummyjson.com/products")
 .then(res => res.json()) // nhận và chuyển chuỗi json thành js
 .then(data => {
-    //  console.log(data);
+     console.log(data);
     //  console.log(data.products);
 
     const newArray = data.products.map((item) => {

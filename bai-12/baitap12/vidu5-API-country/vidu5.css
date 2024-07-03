@@ -1,0 +1,17 @@
+.flags-item{
+   border: 1px solid black;
+   width: 300px;
+   height: auto;
+   display: inline-block;
+   margin-bottom: 15px;
+}
+
+.flags-item img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flags-item h2{
+    text-align: center;
+}
