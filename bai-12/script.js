@@ -117,33 +117,56 @@ import { tinhTong} from "./helpers/tinhTong.js";
 //Fetch : dùng để gọi lên server thông qua API để bắt dữ liệu trên server trả về
 //API : là 1 url để frontend giao tiếp với backend
 
-fetch("https://dummyjson.com/products")
-.then(res => res.json()) // nhận và chuyển chuỗi json thành js
-.then(data => {
-     console.log(data);
-    //  console.log(data.products);
+// fetch("https://dummyjson.com/products")
+// .then(res => res.json()) // nhận và chuyển chuỗi json thành js
+// .then(data => {
+//      console.log(data);
+//     //  console.log(data.products);
 
-    const newArray = data.products.map((item) => {
-        // return `
-        // <li>${item.title}</li>
-        // `;
+//     const newArray = data.products.map((item) => {
+//         // return `
+//         // <li>${item.title}</li>
+//         // `;
 
-        return `
-        <div class = "product-item">
-            <img src="${item.thumbnail}">
-            <h2>${item.title}</h2>
-            <h3>${item.price}</h3>
-        </div>
-        `
-    })
-    //console.log(newArray);
+//         return `
+//         <div class = "product-item">
+//             <img src="${item.thumbnail}">
+//             <h2>${item.title}</h2>
+//             <h3>${item.price}</h3>
+//         </div>
+//         `
+//     })
+//     //console.log(newArray);
 
-    const htmls = newArray.join('');
-    //console.log(htmls);
+//     const htmls = newArray.join('');
+//     //console.log(htmls);
 
-    // const productList =document.querySelector("#product-list");
-    // productList.innerHTML = htmls;
+//     // const productList =document.querySelector("#product-list");
+//     // productList.innerHTML = htmls;
 
-    const productLis =document.getElementById("product-list");
-    productLis.innerHTML = htmls;
+//     const productLis =document.getElementById("product-list");
+//     productLis.innerHTML = htmls;
+// })
+
+//4.Async/Await : la mot tinh nang cua JS giup ta lam
+//viec voi cac ham bat dong bo mot cach de hieu hon
+//- Duoc xay dung tren Promise
+//- Async : khai bao 1 ham bat do   
+
+const fetchApi = async (api) => {
+    const res = await fetch(api);  //doi fetch thanh promise (doi fetch chay xong roi moi chay ham tiep theo) 
+    const data = await res.json(); //tuong tu
+    //console.log(data);
+    return data;
+}
+
+// fetchApi("https://dummyjson.com/products")
+// .then(data =>{
+//     console.log(data);
+// })
+
+//api localhost
+fetchApi("http://localhost:3000/products")
+.then(data =>{
+    console.log(data);
 })
