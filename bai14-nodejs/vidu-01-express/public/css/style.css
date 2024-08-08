@@ -1,0 +1,12 @@
+.test {
+    color: red;
+}
+
+table {
+    border: 1px solid #000000;
+}
+
+th , td {
+    border: 1px solid #000000;
+    padding: 10px;
+}

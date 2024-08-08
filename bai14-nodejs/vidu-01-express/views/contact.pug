@@ -1,0 +1,8 @@
+extends layout/default.pug 
+include mixins/box-head.pug
+
+block main  
+  //- div(class = "box-head") 
+  //-   h1(class = "inner-title") Trang Lien He
+  //-   div(class = "inner-desc") Day la doan mota nho trang lh
+  +box-head("Trang chu","Day la doan mo ta cua trang LH")
