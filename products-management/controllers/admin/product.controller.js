@@ -76,7 +76,10 @@ module.exports.changeMulti = async (req, res) => {
 module.exports.deleteItem = async (req, res) => {
     const id = req.params.id;
     // phương thức xóa chỉ thay đổi thuộc tính "deleted" trong csdl
-    await Product.updateOne({_id : id} , {deleted : true})
+    await Product.updateOne({_id : id} , {
+        deleted : true,
+        deletedAt : new Date()
+    })
     // phương thức xóa Item này trong csdl luôn (xóa cứng)
     // await Product.deleteOne({_id : id})
     res.redirect("back")
