@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+//multer : đẩy ảnh hình với bộ lọc ở local
 const multer = require('multer');
 const storageMulter = require('../../helpers/storageMulter');
 const upload = multer({  storage: storageMulter()});
