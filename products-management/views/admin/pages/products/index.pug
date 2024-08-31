@@ -3,8 +3,10 @@ include ../../mixins/filterStatus.pug
 include ../../mixins/formSearch.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
+include ../../mixins/alert.pug
 
 block main
+    +alert-success(5000)
     h1 Trang Danh Sach San Pham
 
     .card.mb-3 
@@ -34,6 +36,7 @@ block main
                         th Hinh Anh 
                         th Tieu de 
                         th Gia 
+                        th Vi Tri
                         th Trang Thai 
                         th Hoat Dong 
                 tbody 
@@ -50,6 +53,15 @@ block main
                                 img(src= item.thumbnail, alt= item.title width = '100px' height = 'auto')
                             td #{item.title}
                             td #{item.price}$
+                            td 
+                                input(
+                                    type="number"
+                                    value = item.position 
+                                    style = "width : 60px"
+                                    min = "1"
+                                    name = "position" 
+                                )
+        
                             td 
                                 if(item.status == 'active')
                                     a(

@@ -32,9 +32,12 @@ module.exports.index = async (req, res) => {
         currentPage : 1
     } , req.query , countProducts )
 
-    // emd phần phân trang - pagination
+    // end phần phân trang - pagination
 
-    const products = await Product.find(find).limit(objectPagination.limitItem).skip(objectPagination.skip);
+    const products = await Product.find(find)
+        .sort({position : "desc"})
+        .limit(objectPagination.limitItem)
+        .skip(objectPagination.skip);
     res.render("admin/pages/products/index.pug", {
         titlePage : "Trang SP",
         products : products,
@@ -51,10 +54,12 @@ module.exports.changeStatus = async (req, res) => {
 
     await Product.updateOne({_id : id} , {status : status})
 
+    req.flash("success", "Cập nhật trạng thái thành công")
+    
     res.redirect("back")
 }
 
-// [PATCH] /admin/products/change-status/:status/:id
+// [PATCH] /admin/products/change-multi
 module.exports.changeMulti = async (req, res) => {
     const type = req.body.type;
     const ids = req.body.ids.split(",");
@@ -62,9 +67,29 @@ module.exports.changeMulti = async (req, res) => {
     switch(type){
         case "active": 
             await Product.updateMany({_id : {$in : ids}} , {status : "active"})
+            req.flash("success", `Cập nhật trạng thái thành công cho ${ids.length} sản phẩm`)
             break;
         case "unactive":
             await Product.updateMany({_id : {$in : ids}} , {status : "unactive"})
+            req.flash("success", `Cập nhật trạng thái thành công cho ${ids.length} sản phẩm`)
+            break;
+        case "delete-all":
+            // await Product.deleteMany({_id : {$in : ids}})
+            // break;
+            await Product.updateMany({_id : {$in : ids}} , {
+                deleted : true , 
+                deletedAt : new Date()
+            })
+            req.flash("success", `Xóa thành công cho ${ids.length} sản phẩm`)
+            break;
+        case "change-position":
+            for (const item of ids) {
+                let[id , position] = item.split("-")
+                position = parseInt(position)
+                await Product.updateOne({_id : id} , {
+                    position : position
+                })
+            }
             break;
         default:
             break;
@@ -80,6 +105,7 @@ module.exports.deleteItem = async (req, res) => {
         deleted : true,
         deletedAt : new Date()
     })
+    req.flash("success", `Xóa thành công  sản phẩm`)
     // phương thức xóa Item này trong csdl luôn (xóa cứng)
     // await Product.deleteOne({_id : id})
     res.redirect("back")

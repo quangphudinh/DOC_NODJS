@@ -2,15 +2,15 @@
 const buttonStatus = document.querySelectorAll('[button-status]');
 // console.log(buttonStatus);
 
-if(buttonStatus.length > 0){
+if (buttonStatus.length > 0) {
     let url = new URL(window.location.href);
-    console.log(url);
+    // console.log(url);
 
     buttonStatus.forEach(button => {
         button.addEventListener('click', () => {
             const status = button.getAttribute('button-status');
             console.log(status);
-            if(status){
+            if (status) {
                 url.searchParams.set('status', status);
             }
             else {
@@ -24,15 +24,15 @@ if(buttonStatus.length > 0){
 
 //form search
 const formSearch = document.querySelector('#form-search');
-if(formSearch){
+if (formSearch) {
     let url = new URL(window.location.href);
-    
+
     formSearch.addEventListener('submit', (e) => {
         e.preventDefault();
         const keyword = e.target.elements.keyword.value;
-        if(keyword){
+        if (keyword) {
             url.searchParams.set('keyword', keyword);
-        }else{
+        } else {
             url.searchParams.delete('keyword');
         }
         window.location.href = url;
@@ -43,7 +43,7 @@ if(formSearch){
 // pagination
 
 const buttonPagination = document.querySelectorAll('[button-pagination]');
-if(buttonPagination){
+if (buttonPagination) {
     let url = new URL(window.location.href);
     buttonPagination.forEach(button => {
         button.addEventListener('click', () => {
@@ -60,17 +60,17 @@ if(buttonPagination){
 //check-box-multi all products
 
 const checkboxMulti = document.querySelector('[checkbox-multi]');
-if(checkboxMulti){
+if (checkboxMulti) {
     const inputCheckAll = checkboxMulti.querySelector("input[name='checkall']");
     const inputIdList = checkboxMulti.querySelectorAll("input[name='id']");
     // console.log(inputCheckAll , inputIdList);
 
     inputCheckAll.addEventListener('click', () => {
-        if(inputCheckAll.checked){
+        if (inputCheckAll.checked) {
             inputIdList.forEach(input => {
                 input.checked = true;
             })
-        }else{
+        } else {
             inputIdList.forEach(input => {
                 input.checked = false;
             })
@@ -80,11 +80,11 @@ if(checkboxMulti){
     inputIdList.forEach(input => {
         input.addEventListener('click', () => {
             const countChecked = checkboxMulti.querySelectorAll("input[name='id']:checked").length;
-            if(countChecked === inputIdList.length){
+            if (countChecked === inputIdList.length) {
                 inputCheckAll.checked = true;
             }
 
-            if(!input.checked){
+            if (!input.checked) {
                 inputCheckAll.checked = false;
             }
         })
@@ -96,25 +96,43 @@ if(checkboxMulti){
 // Form change multi
 
 const formChangMulti = document.querySelector('[form-change-multi]');
-if(formChangMulti){
+if (formChangMulti) {
     formChangMulti.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const checkboxMulti = document.querySelector('[checkbox-multi]');
         const inputsChecked = checkboxMulti.querySelectorAll("input[name='id']:checked");
 
-        if(inputsChecked.length > 0){   
+        const typeChange = e.target.elements.type.value;
+
+
+        if (typeChange === 'delete-all') {
+            const isConfirm = confirm('Bạn có muốn xóa những sản phẩm đã chọn ?');
+            if (!isConfirm) {
+                return;
+            }
+        }
+
+        if (inputsChecked.length > 0) {
             let ids = [];
-            const inputIds = formChangMulti.querySelector("input[name='ids']"); 
-            
+            const inputIds = formChangMulti.querySelector("input[name='ids']");
+
             inputsChecked.forEach(input => {
                 const id = input.value;
-                ids.push(id);
+
+                if (typeChange === 'change-position') {
+                    //đứng từ thẻ (td) checkbox đã được tích , tìm đến th cha của nó (thẻ tr) , từ thẻ tr đó tìm đến thẻ input có name = position 
+                    const position = input.closest('tr').querySelector('input[name="position"]').value;
+                    ids.push(`${id}-${position}`);
+                }
+                else {
+                    ids.push(id);
+                }
             })
 
             inputIds.value = ids.join(',');
             formChangMulti.submit();
-        }else{
+        } else {
             alert('Vui lòng chọn ít nhất một sản phẩm');
         }
     })
@@ -122,25 +140,20 @@ if(formChangMulti){
 
 // end form change multi
 
-// Delete Ittem
+//Show alert chang trang thai
+const showAlert = document.querySelector('[show-alert]');
+if (showAlert) {
+    const time = parseInt(showAlert.getAttribute("data-time"));
+    const closeAlert = showAlert.querySelector("span[close-alert]");
+   
+    setTimeout(() => {
+        showAlert.classList.add("alert-hidden");        
+    },time)
+    console.log(showAlert);
 
-const buttonDelete = document.querySelectorAll('[button-delete]');
-if(buttonDelete.length > 0){
-    const formDeleteItem = document.querySelector('#form-delete-item');
-    const path = formDeleteItem.getAttribute('data-path');
-
-    buttonDelete.forEach(button => {
-        button.addEventListener('click', () => {
-           const isConfirm = confirm('Bạn có muốn xóa sản phẩm này ?');
-           if(isConfirm){
-                const id = button.getAttribute('data-id');
-                const action = `${path}/${id}?_method=DELETE`;
-                console.log(action);
-                formDeleteItem.action = action;
-                formDeleteItem.submit();
-           }
-        })
+    closeAlert.addEventListener('click', () => {
+        showAlert.classList.add("alert-hidden");
     })
 }
 
-// end Delete Ittem
+// end Show alert
