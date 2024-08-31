@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const multer = require('multer');
+const storageMulter = require('../../helpers/storageMulter');
+const upload = multer({  storage: storageMulter()});
+
 const controller = require('../../controllers/admin/product.controller');
 
 router.get('/', controller.index);
@@ -11,6 +15,9 @@ router.patch('/change-multi', controller.changeMulti);
 
 router.delete('/delete/:id', controller.deleteItem);
 
-module.exports = router;
+router.get('/create', controller.create);
 
-//1h02
+// router.post('/create', controller.createPost); // khong su dung upload
+router.post('/create', upload.single('thumbnail'), controller.createPost);
+
+module.exports = router;

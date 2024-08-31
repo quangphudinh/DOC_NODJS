@@ -3,6 +3,8 @@ const filterStatusHelper = require("../../helpers/filterStatus");
 const searchHelper = require("../../helpers/search");
 const paginationHelper = require("../../helpers/pagination");
 
+const systemConfig = require("../../config/system");
+
 // [GET] /admin/products
 module.exports.index = async (req, res) => {
     //Đoạn bộ lọc
@@ -110,3 +112,34 @@ module.exports.deleteItem = async (req, res) => {
     // await Product.deleteOne({_id : id})
     res.redirect("back")
 }
+
+// [GET] /admin/products/create
+module.exports.create = async (req, res) => {
+    res.render("admin/pages/products/create.pug", {
+        titlePage : "Thêm mới sản phẩm"
+    })
+}
+
+// [POST] /admin/products/create
+module.exports.createPost = async (req, res) => {
+    // console.log(req.file)
+    req.body.price = parseInt(req.body.price);
+    req.body.discountPercentage = parseInt(req.body.discountPercentage);
+    req.body.stock = parseInt(req.body.stock);
+
+    if(req.body.position === ""){
+        const countProducts = await Product.countDocuments();
+        req.body.position = countProducts + 1;
+    }else{
+        req.body.position = parseInt(req.body.position);
+    }
+    req.body.thumbnail = `/uploads/${req.file.filename}`
+    const data = req.body;
+
+    const product = new Product(data);
+    await product.save();
+    req.flash("success", "Them thanh cong san pham")
+    res.redirect(`${systemConfig.prefixAdmin}/products`)
+    
+}
+

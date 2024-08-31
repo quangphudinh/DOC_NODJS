@@ -149,7 +149,7 @@ if (showAlert) {
     setTimeout(() => {
         showAlert.classList.add("alert-hidden");        
     },time)
-    console.log(showAlert);
+    // console.log(showAlert);
 
     closeAlert.addEventListener('click', () => {
         showAlert.classList.add("alert-hidden");
