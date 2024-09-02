@@ -13,10 +13,30 @@ module.exports.index = async (req, res) => {
         return item;
     })
     
-    console.log(newProducts);
+    // console.log(newProducts);
 
     res.render('client/pages/products/index.pug',{
         titlePage : "Trang San Pham",
         products : newProducts
     })
-  }
+}
+
+// [GET] /products/:slug
+module.exports.detail = async (req, res) => {
+
+    try {
+        const find = {
+            deleted: false,
+            slug: req.params.slug,
+            status: "active"
+        }
+        const product = await Product.findOne(find);
+        // console.log(product)
+        res.render('client/pages/products/detail.pug', {
+            titlePage: product.title,
+            product: product
+        })
+    } catch (error) {
+        res.redirect(`/products`)
+    }
+}

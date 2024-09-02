@@ -3,9 +3,8 @@ const router = express.Router();
 
 const controller = require('../../controllers/client/products.controller');
 
-//trang chinh cua san pham
-router.get('/products',controller.index)
+router.get('/',controller.index)
 
-//con nhieu trang nua nhu : tao them sua xoa san pham
+router.get('/:slug',controller.detail)
 
 module.exports = router;
