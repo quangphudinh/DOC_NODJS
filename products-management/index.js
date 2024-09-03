@@ -28,9 +28,9 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }))
 
 //publish file
-app.use(express.static('public'));
+app.use(express.static(`${__dirname}/public`));
 
-app.set('views', './views');
+app.set('views', `${__dirname}/views`);
 app.set('view engine', 'pug');
 
 // ex flash
